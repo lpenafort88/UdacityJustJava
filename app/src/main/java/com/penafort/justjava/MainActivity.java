@@ -6,7 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    int quantity;
+    int quantity=0;
+    String priceMessage="Free";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayPrice(quantity*5);
+        int price=quantity*5;
+        String priceMessage="Total Due = $"+price+" \n Thank You!";
+        displayMessage(priceMessage);
     }
 
     /**
@@ -38,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
      * This method will increment the counter and update the quantity being displayed
      */
     public void increment(View view){
-        quantity=getQuanity();
         quantity+=1;
         display(quantity);
     }
@@ -46,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
      * This method will decrement the counter and update the quantity being displayed
      */
     public void decrement(View view){
-        quantity=getQuanity();
         quantity-=1;
         display(quantity);
     }
@@ -56,5 +57,12 @@ public class MainActivity extends AppCompatActivity {
     private int getQuanity(){
         TextView quantityTV=getQuantityTV();
         return Integer.parseInt(quantityTV.getText().toString());
+    }
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_value);
+        priceTextView.setText(message);
     }
 }
