@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void displayPrice(int number){
         String price="$"+String.valueOf(number);
-        TextView priceTextView=findViewById(R.id.price_value);
-        priceTextView.setText(price);
+        TextView orderSummaryTextView=findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(price);
     }
     /**
      * This method will increment the counter and update the quantity being displayed
